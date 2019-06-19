@@ -1,4 +1,4 @@
-# terraform-module-github-repo
+# Terraform Module - Github Repository
 A terraform module for creating GitHub and GitHub Enterprise Repositories.
 
 ## Inputs
