@@ -22,3 +22,12 @@ resource "github_repository" "this" {
 
   archived            = "${var.archived}"
 }
+
+resource "github_branch_protection" "this" {
+  github_repository             = "${github_repository.this.name}"
+  branch                        = "${var.default_branch}"
+  enforce_admins                = "${var.enforce_admins}"
+  required_status_checks        = "${var.required_status_checks}"
+  required_pull_request_reviews = "${var.required_pull_request_reviews}"
+  restrictions                  = "${var.restrictions}"
+}
