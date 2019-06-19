@@ -84,7 +84,7 @@ variable "license_template" {
 variable "default_branch" {
   description = "(Optional) The name of the default branch of the repository. NOTE: This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute."
   type        = "string"
-  default     = "master"
+  default     = ""
 }
 
 variable "archived" {
@@ -95,8 +95,8 @@ variable "archived" {
 
 variable "topics" {
   description = "(Optional) The list of topics of the repository."
-  type        = "string"
-  default     = ""
+  type        = "list"
+  default     = []
 }
 
 
