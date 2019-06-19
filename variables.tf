@@ -99,4 +99,26 @@ variable "topics" {
   default     = []
 }
 
+variable "enforce_admins" {
+  description = "(Optional) Boolean, setting this to true enforces status checks for repository administrators."
+  type        = "string"
+  default     = false
+}
 
+variable "required_status_checks" {
+  description = "(Optional) Enforce restrictions for required status checks."
+  type        = "map"
+  default     = {}
+}
+
+variable "required_pull_request_reviews" {
+  description = "(Optional) Enforce restrictions for pull request reviews."
+  type        = "map"
+  default     = {}
+}
+
+variable "restrictions" {
+  description = "(Optional) Enforce restrictions for the users and teams that may push to the branch."
+  type        = "map"
+  default     = {}
+}
