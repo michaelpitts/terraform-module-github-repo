@@ -8,6 +8,8 @@ Set the following environment variables before running:
 
 ```export GITHUB_ORGANIZATION=your-org-name```
 
+The account that is associated with the above token must have "owner" permissions on the above organization.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
