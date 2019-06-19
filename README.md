@@ -1,6 +1,11 @@
 # Terraform Module - Github Repository
 A terraform module for creating GitHub and GitHub Enterprise Repositories.
 
+## Requirements:
+Set the following environment variables before running:
+```export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
+```export GITHUB_ORGANIZATION=your-org-name```
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
