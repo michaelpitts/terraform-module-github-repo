@@ -10,10 +10,14 @@ Set the following environment variables before running:
 
 The account that is associated with the above token must have "owner" permissions on the above organization.
 
+Currently "organization" is a required input variable, and must refer to a valid github repo. I am working on adding some logic to fix this, or finding a workaround. 
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| name | (Required) The name of the repository. | string | n/a | yes |
+| organization | (Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \"owner\" privileges for this organization | string | `""` | no |
 | allow\_merge\_commit | (Optional) Set to false to disable merge commits on the repository. | string | `"true"` | no |
 | allow\_rebase\_merge | (Optional) Set to false to disable rebase merges on the repository. | string | `"true"` | no |
 | allow\_squash\_merge | (Optional) Set to false to disable squash merges on the repository. | string | `"true"` | no |
@@ -21,6 +25,7 @@ The account that is associated with the above token must have "owner" permission
 | auto\_init | (Optional) Set to true to produce an initial commit in the repository. | string | `"false"` | no |
 | default\_branch | (Optional) The name of the default branch of the repository. NOTE: This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute. | string | `""` | no |
 | description | (Optional) A description of the repository. | string | `""` | no |
+| enforce\_admins | (Optional) Boolean, setting this to true enforces status checks for repository administrators. | string | `"false"` | no |
 | gitignore\_template | (Optional) Use the name of the template without the extension. For example, \"Haskell\". | string | `""` | no |
 | has\_downloads | (Optional) Set to true to enable the (deprecated) downloads features on the repository. | string | `"false"` | no |
 | has\_issues | (Optional) Set to true to enable the GitHub Issues features on the repository. | string | `"false"` | no |
@@ -28,8 +33,10 @@ The account that is associated with the above token must have "owner" permission
 | has\_wiki | (Optional) Set to true to enable the GitHub Wiki features on the repository. | string | `"false"` | no |
 | homepage\_url | (Optional) URL of a page describing the project. | string | `""` | no |
 | license\_template | (Optional) Use the name of the template without the extension. For example, \"mit\" or \"mpl-2.0\". | string | `""` | no |
-| name | (Required) The name of the repository. | string | n/a | yes |
 | private | (Optional) Set to true to create a private repository. Repositories are created as public (e.g. open source) by default. | string | `"false"` | no |
+| required\_pull\_request\_reviews | (Optional) Enforce restrictions for pull request reviews. | list | `<list>` | no |
+| required\_status\_checks | (Optional) Enforce restrictions for required status checks. | list | `<list>` | no |
+| restrictions | (Optional) Enforce restrictions for the users and teams that may push to the branch. | list | `<list>` | no |
 | topics | (Optional) The list of topics of the repository. | list | `<list>` | no |
 
 ## Outputs
