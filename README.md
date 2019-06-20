@@ -6,11 +6,9 @@ Set the following environment variables before running:
 
 ```export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
 
-```export GITHUB_ORGANIZATION=your-org-name```
+The account that is associated with the above token must have "owner" permissions on the organization that is referenced as an input variable.
 
-The account that is associated with the above token must have "owner" permissions on the above organization.
-
-Currently "organization" is a required input variable, and must refer to a valid github repo. I am working on adding some logic to fix this, or finding a workaround. 
+Currently "organization" is a required input variable, and must refer to a valid github repo. I am working on adding some logic to fix this, or finding a workaround.
 
 ## Inputs
 
