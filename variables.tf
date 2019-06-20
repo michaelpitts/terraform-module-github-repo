@@ -1,9 +1,3 @@
-variable "organization" {
-  description = "(Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \\\"owner\\\" privileges for this organization"
-  type        = "string"
-  default     = ""
-}
-
 variable "name" {
   description = "(Required) The name of the repository."
   type        = "string"

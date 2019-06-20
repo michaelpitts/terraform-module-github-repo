@@ -24,7 +24,7 @@ resource "github_repository" "this" {
 }
 
 data "github_repository" "reference" {
-  full_name = "${var.organization}/${github_repository.this.name}"
+  full_name = "${github_repository.this.full_name}"
 }
 
 resource "github_branch_protection" "this" {
@@ -44,3 +44,8 @@ resource "null_resource" "pull_request_template" {
     command = "git clone ${github_repository.this.ssh_clone_url} ; cp ./docs/pull_request_template.md ${github_repository.this.name}/PULL_REQUEST_TEMPLATE.md ; cd ${github_repository.this.name}/ ; git add PULL_REQUEST_TEMPLATE.md ; git commit -m 'adding pull request template' ; git push ; cd ../ ; rm -rf ${github_repository.this.name}/"
   }
 }
+
+/* resource "github_repository_collaborator" "this" {
+  repository = "${github_repository.this.name}"
+}
+ */

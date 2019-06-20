@@ -1,3 +1,1 @@
-provider "github" {
-  organization = "${var.organization}"
-}
+provider "github" {}

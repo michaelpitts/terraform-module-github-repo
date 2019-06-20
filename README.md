@@ -5,17 +5,15 @@ A terraform module for creating GitHub and GitHub Enterprise Repositories.
 Set the following environment variables before running:
 
 ```export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
+```export GITHUB_ORGANIZATION=your-org-name```
 
 The account that is associated with the above token must have "owner" permissions on the organization that is referenced as an input variable.
-
-Currently "organization" is a required input variable, and must refer to a valid github repo. I am working on adding some logic to fix this, or finding a workaround.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | name | (Required) The name of the repository. | string | n/a | yes |
-| organization | (Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \"owner\" privileges for this organization | string | `""` | no |
 | allow\_merge\_commit | (Optional) Set to false to disable merge commits on the repository. | string | `"true"` | no |
 | allow\_rebase\_merge | (Optional) Set to false to disable rebase merges on the repository. | string | `"true"` | no |
 | allow\_squash\_merge | (Optional) Set to false to disable squash merges on the repository. | string | `"true"` | no |
