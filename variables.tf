@@ -1,3 +1,9 @@
+variable "organization" {
+  description = "(Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \\\"owner\\\" privileges for this organization"
+  type        = "string"
+  default     = ""
+}
+
 variable "name" {
   description = "(Required) The name of the repository."
   type        = "string"
@@ -107,18 +113,18 @@ variable "enforce_admins" {
 
 variable "required_status_checks" {
   description = "(Optional) Enforce restrictions for required status checks."
-  type        = "map"
-  default     = {}
+  type        = "list"
+  default     = []
 }
 
 variable "required_pull_request_reviews" {
   description = "(Optional) Enforce restrictions for pull request reviews."
-  type        = "map"
-  default     = {}
+  type        = "list"
+  default     = []
 }
 
 variable "restrictions" {
   description = "(Optional) Enforce restrictions for the users and teams that may push to the branch."
-  type        = "map"
-  default     = {}
+  type        = "list"
+  default     = []
 }
