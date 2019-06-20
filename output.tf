@@ -27,4 +27,3 @@ output "svn_url" {
   description = " URL that can be provided to svn checkout to check out the repository via GitHub's Subversion protocol emulation."
   value       = "${github_repository.this.svn_url}"
 }
-

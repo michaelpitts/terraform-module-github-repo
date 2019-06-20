@@ -22,3 +22,25 @@ resource "github_repository" "this" {
 
   archived            = "${var.archived}"
 }
+
+data "github_repository" "reference" {
+  full_name = "${var.organization}/${github_repository.this.name}"
+}
+
+resource "github_branch_protection" "this" {
+  depends_on = ["github_repository.this","null_resource.pull_request_template"]
+  
+  repository                    = "${github_repository.this.name}"
+  branch                        = "${data.github_repository.reference.default_branch}"
+  enforce_admins                = "${var.enforce_admins}"
+  required_status_checks        = "${var.required_status_checks}"
+  required_pull_request_reviews = "${var.required_pull_request_reviews}"
+  restrictions                  = "${var.restrictions}"
+}
+
+resource "null_resource" "pull_request_template" {
+  depends_on = ["github_repository.this"]
+  provisioner "local-exec" {
+    command = "git clone ${github_repository.this.ssh_clone_url} ; cp ./docs/pull_request_template.md ${github_repository.this.name}/PULL_REQUEST_TEMPLATE.md ; cd ${github_repository.this.name}/ ; git add PULL_REQUEST_TEMPLATE.md ; git commit -m 'adding pull request template' ; git push ; cd ../ ; rm -rf ${github_repository.this.name}/"
+  }
+}
