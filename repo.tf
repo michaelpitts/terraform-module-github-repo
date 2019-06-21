@@ -45,7 +45,14 @@ resource "null_resource" "pull_request_template" {
   }
 }
 
-/* resource "github_repository_collaborator" "this" {
-  repository = "${github_repository.this.name}"
+data "github_team" "example" {
+  slug = "${var.team_slug}"
 }
- */
+
+resource "github_team_repository" "this" {
+  depends_on  = ["github_repository.this"]
+
+  team_id     = "${data.github_team.example.id}"
+  repository  = "${github_repository.this.name}"
+  permission  = "${var.permission}"
+}

@@ -122,3 +122,15 @@ variable "restrictions" {
   type        = "list"
   default     = []
 }
+
+variable "team_slug" {
+  description = "(Required) The GitHub team slug"
+  type        = "string"
+  default     = ""
+}
+
+variable "permission" {
+  description = "(Optional) The permissions of team members regarding the repository. Must be one of pull, push, or admin. Defaults to pull."
+  type        = "string"
+  default     = "pull"
+}
