@@ -7,4 +7,3 @@ module "example_repository" {
   auto_init             = true
   team_slug             = "developers"
 }
-
