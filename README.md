@@ -1,21 +1,23 @@
 # Terraform Module - Github Repository
-A terraform module for creating GitHub and GitHub Enterprise Repositories.
+A terraform module for creating repositories in your GitHub Organization.
+
+This module is a "quick-and-dirty" way of achieving reusable, automated github repo provisioning & configuration. I would like to make org & team input optional, but the limitations of terraform's HCL configuration language have made this a challenge. With that said, the recent syntax improvements introduced in Terraform 0.12 release may open up some possibilities of improvement, and higher flexibility for this module.
 
 ## Requirements:
 Set the following environment variables before running:
 
 ```export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
+```export GITHUB_ORGANIZATION=your-org-name```
 
 The account that is associated with the above token must have "owner" permissions on the organization that is referenced as an input variable.
 
-Currently "organization" is a required input variable, and must refer to a valid github repo. I am working on adding some logic to fix this, or finding a workaround.
+This module requires the existance of a GitHub team to be given access to the repository.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | name | (Required) The name of the repository. | string | n/a | yes |
-| organization | (Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \"owner\" privileges for this organization | string | `""` | no |
 | allow\_merge\_commit | (Optional) Set to false to disable merge commits on the repository. | string | `"true"` | no |
 | allow\_rebase\_merge | (Optional) Set to false to disable rebase merges on the repository. | string | `"true"` | no |
 | allow\_squash\_merge | (Optional) Set to false to disable squash merges on the repository. | string | `"true"` | no |
@@ -31,10 +33,12 @@ Currently "organization" is a required input variable, and must refer to a valid
 | has\_wiki | (Optional) Set to true to enable the GitHub Wiki features on the repository. | string | `"false"` | no |
 | homepage\_url | (Optional) URL of a page describing the project. | string | `""` | no |
 | license\_template | (Optional) Use the name of the template without the extension. For example, \"mit\" or \"mpl-2.0\". | string | `""` | no |
+| permission | (Optional) The permissions of team members regarding the repository. Must be one of pull, push, or admin. Defaults to pull. | string | `"pull"` | no |
 | private | (Optional) Set to true to create a private repository. Repositories are created as public (e.g. open source) by default. | string | `"false"` | no |
 | required\_pull\_request\_reviews | (Optional) Enforce restrictions for pull request reviews. | list | `<list>` | no |
 | required\_status\_checks | (Optional) Enforce restrictions for required status checks. | list | `<list>` | no |
 | restrictions | (Optional) Enforce restrictions for the users and teams that may push to the branch. | list | `<list>` | no |
+| team\_slug | (Required) The GitHub team slug | string | `""` | no |
 | topics | (Optional) The list of topics of the repository. | list | `<list>` | no |
 
 ## Outputs

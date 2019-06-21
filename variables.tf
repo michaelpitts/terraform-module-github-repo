@@ -1,9 +1,3 @@
-variable "organization" {
-  description = "(Optional) This is the target GitHub organization to manage. The account corresponding to the token will need \\\"owner\\\" privileges for this organization"
-  type        = "string"
-  default     = ""
-}
-
 variable "name" {
   description = "(Required) The name of the repository."
   type        = "string"
@@ -127,4 +121,16 @@ variable "restrictions" {
   description = "(Optional) Enforce restrictions for the users and teams that may push to the branch."
   type        = "list"
   default     = []
+}
+
+variable "team_slug" {
+  description = "(Required) The GitHub team slug"
+  type        = "string"
+  default     = ""
+}
+
+variable "permission" {
+  description = "(Optional) The permissions of team members regarding the repository. Must be one of pull, push, or admin. Defaults to pull."
+  type        = "string"
+  default     = "pull"
 }
