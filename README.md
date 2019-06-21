@@ -9,6 +9,7 @@ Created using Terraform v0.11.13
 Set the following environment variables before running:
 
 ```export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
+
 ```export GITHUB_ORGANIZATION=your-org-name```
 
 The account that is associated with the above token must have "owner" permissions on the organization that is referenced as an input variable.
