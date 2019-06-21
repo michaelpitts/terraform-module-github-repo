@@ -1,0 +1,10 @@
+example/terraform.tfstate.backup
+.terraform/plugins/darwin_amd64/lock.json
+.terraform/plugins/darwin_amd64/terraform-provider-github_v2.1.0_x4
+.terraform/plugins/darwin_amd64/terraform-provider-null_v2.1.2_x4
+example/terraform.tfstate
+example/.terraform/modules/952b7443769a18bd13aa78daac8ff811
+example/.terraform/modules/modules.json
+example/.terraform/plugins/darwin_amd64/lock.json
+example/.terraform/plugins/darwin_amd64/terraform-provider-github_v2.1.0_x4
+example/.terraform/plugins/darwin_amd64/terraform-provider-null_v2.1.2_x4

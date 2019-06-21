@@ -38,7 +38,7 @@ This module requires the existance of a GitHub team to be given access to the re
 | required\_pull\_request\_reviews | (Optional) Enforce restrictions for pull request reviews. | list | `<list>` | no |
 | required\_status\_checks | (Optional) Enforce restrictions for required status checks. | list | `<list>` | no |
 | restrictions | (Optional) Enforce restrictions for the users and teams that may push to the branch. | list | `<list>` | no |
-| team\_slug | (Required) The GitHub team slug | string | `""` | no |
+| team\_slug | (Required) The GitHub team slug | string | `""` | yes |
 | topics | (Optional) The list of topics of the repository. | list | `<list>` | no |
 
 ## Outputs
