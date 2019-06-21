@@ -3,6 +3,8 @@ A terraform module for creating repositories in your GitHub Organization.
 
 This module is a "quick-and-dirty" way of achieving reusable, automated github repo provisioning & configuration. I would like to make org & team input optional, but the limitations of terraform's HCL configuration language have made this a challenge. With that said, the recent syntax improvements introduced in Terraform 0.12 release may open up some possibilities of improvement, and higher flexibility for this module.
 
+Created using Terraform v0.11.13
+
 ## Requirements:
 Set the following environment variables before running:
 
