@@ -21,7 +21,7 @@ The following input variables are intended to be written as a "list of maps". Wh
 
 ### Required Status Checks
 Example:
-```
+```hcl
 required_status_checks = [
     {
     strict   = false
@@ -32,7 +32,7 @@ required_status_checks = [
 
 ### Required Pull Request Reviews
 Example: 
-```
+```hcl
 required_pull_request_reviews = [
     {
     dismiss_stale_reviews = true
@@ -44,7 +44,7 @@ required_pull_request_reviews = [
 
 ### Restrictions
 Example: 
-```
+```hcl
 restrictions = [
     {
     users = ["foo-user"]
