@@ -37,7 +37,7 @@ required_pull_request_reviews = [
     {
     dismiss_stale_reviews = true
     dismissal_users       = ["foo-user"]
-    dismissal_teams       = ["${github_team.example.slug}", "${github_team.second.slug}"]
+    dismissal_teams       = ["${var.github_team}", "${var.github_team_2}"]
     }
   ] 
 ```
@@ -48,7 +48,7 @@ Example:
 restrictions = [
     {
     users = ["foo-user"]
-    teams = ["${github_team.example.slug}"]
+    teams = ["${var.github_team}"]
     }
   ]
 ```
