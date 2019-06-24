@@ -16,6 +16,37 @@ The account that is associated with the above token must have "owner" permission
 
 This module requires the existance of a GitHub team to be given access to the repository.
 
+## Branch Protection Inputs
+The following input variables are intended to be written as a "list of maps". While this is more complex thatn granular parameters for each map, it allows the user to be more specific and flexible when setting details access policies.
+
+### Required Status Checks
+Example:
+```
+required_status_checks {
+    strict   = false
+    contexts = ["ci/travis"]
+  }
+```
+
+### Required Pull Request Reviews
+Example: 
+```
+required_pull_request_reviews {
+    dismiss_stale_reviews = true
+    dismissal_users       = ["foo-user"]
+    dismissal_teams       = ["${github_team.example.slug}", "${github_team.second.slug}"]
+  }
+```
+
+### Restrictions
+Example: 
+```
+restrictions {
+    users = ["foo-user"]
+    teams = ["${github_team.example.slug}"]
+  }
+```
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
