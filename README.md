@@ -22,29 +22,35 @@ The following input variables are intended to be written as a "list of maps". Wh
 ### Required Status Checks
 Example:
 ```
-required_status_checks {
+required_status_checks = [
+    {
     strict   = false
     contexts = ["ci/travis"]
-  }
+    }
+  ]
 ```
 
 ### Required Pull Request Reviews
 Example: 
 ```
-required_pull_request_reviews {
+required_pull_request_reviews = [
+    {
     dismiss_stale_reviews = true
     dismissal_users       = ["foo-user"]
     dismissal_teams       = ["${github_team.example.slug}", "${github_team.second.slug}"]
-  }
+    }
+  ] 
 ```
 
 ### Restrictions
 Example: 
 ```
-restrictions {
+restrictions = [
+    {
     users = ["foo-user"]
     teams = ["${github_team.example.slug}"]
-  }
+    }
+  ]
 ```
 
 ## Inputs
