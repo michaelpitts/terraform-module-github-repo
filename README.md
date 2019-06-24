@@ -24,8 +24,8 @@ Example:
 ```hcl
 required_status_checks = [
     {
-    strict   = false
-    contexts = ["ci/travis"]
+      strict   = false
+      contexts = ["ci/travis"]
     }
   ]
 ```
@@ -35,9 +35,9 @@ Example:
 ```hcl
 required_pull_request_reviews = [
     {
-    dismiss_stale_reviews = true
-    dismissal_users       = ["foo-user"]
-    dismissal_teams       = ["${var.github_team}", "${var.github_team_2}"]
+      dismiss_stale_reviews = true
+      dismissal_users       = ["foo-user"]
+      dismissal_teams       = ["${var.github_team}", "${var.github_team_2}"]
     }
   ] 
 ```
@@ -47,8 +47,8 @@ Example:
 ```hcl
 restrictions = [
     {
-    users = ["foo-user"]
-    teams = ["${var.github_team}"]
+      users = ["foo-user"]
+      teams = ["${var.github_team}"]
     }
   ]
 ```
